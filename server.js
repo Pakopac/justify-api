@@ -3,6 +3,7 @@ const app = express()
 const jwt = require('jsonwebtoken');  
 const cookieParser = require('cookie-parser');
 const port = 3000
+const router = express.Router();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,6 +23,10 @@ var jwtSecret = "sJT7Nbn5"
 var token = null
 var totalWords = 0
 var lastLines = []
+
+app.get('/test',(req, res) => {
+    res.json({"test":"ok"});
+})
 
 app.post('/api/justify', (req, res) => {
     var text = req.text
